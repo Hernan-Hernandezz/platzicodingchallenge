@@ -1,3 +1,11 @@
-p{
-  display: inline;
+section{
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
+  text-align: center;
+}
+.cuadro{
+  border: 1px solid rgb(38, 117, 207);
+}
+.cuadro:hover{
+  background-color: rgb(194, 194, 194);
 }
