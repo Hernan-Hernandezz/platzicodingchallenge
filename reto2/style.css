@@ -1,0 +1,64 @@
+:root{
+  --azul-bg:#2A95F0;
+  --azul-bd:#2A45F0;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center ;
+  flex-direction: column;
+  font-size: 1.6rem;
+  background-color: #808080;
+}
+h1,h2{
+  margin: 1rem;
+}
+.date{
+  display: inherit;
+  width: 40%;
+}
+.date__text{
+  width: 30% ;
+  margin: 1rem 0;
+  display: inline;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.date__input{
+  width: 70%;
+  margin: 1rem 0;
+  border: 1px solid var(--azul-bd) ;
+  border-radius: 1rem;
+  text-align: center ;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  background-color: var(--azul-bg);
+}
+button{
+  width: 20%;
+  margin: 0.5rem 0;
+  color: white;
+  font-weight: 700;
+  border: 1px solid var(--azul-bd);
+  background-color: var(--azul-bg);
+}
+button:active{
+  background-color: var(--azul-bd);
+}
+/* quitar flechas de input de tipo number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; 
