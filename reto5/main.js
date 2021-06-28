@@ -31,7 +31,9 @@ let num1 = document.querySelector('#num1'),
   num8 = document.querySelector('#num8'),
   num9 = document.querySelector('#num9'),
   num0 = document.querySelector('#num0'),
-  punto = document.querySelector('#punto')
+  punto = document.querySelector('#punto'),
+  borrar = document.querySelector('#borrar')
+
 // operadores
   sum = document.querySelector('#sum'),
   res = document.querySelector('#res'),
@@ -42,7 +44,14 @@ let num1 = document.querySelector('#num1'),
   valor1 = "",
   valor2 = "",
   resultado = "",
-  operacion = false
+  operacion = ""
+
+borrar.onclick = () =>{
+  valor1 = ""
+  valor2 = ""
+  operacion = ""
+  parrafo(0)
+}
 
 num1.onclick = () => {
   agregar(1)
@@ -103,6 +112,8 @@ igual.onclick = () =>{
       parrafo(resultado)
       break;
   }
+  valor1 = resultado
+  valor2 = ""
 }
 
 
