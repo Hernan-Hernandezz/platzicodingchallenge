@@ -1,60 +1,23 @@
-// let button = document.querySelector('button'),
-// algoritmo = parseInt(document.querySelector('#algoritmo').value),
-// div = document.querySelector('div'),
-// p = document.createElement('p')
+let parrafo = (n) =>{
+  if(document.querySelector('.numero')){
+    document.querySelector('.numero').remove()
+  }
+  let display = document.querySelector('#display'),
+    p = document.createElement('p'),
+    text = document.createTextNode(n)
+  p.classList.add('numero')
+  p.appendChild(text)
+  display.appendChild(p)
+}
 
-// function consulta(){
-//   num1 = parseInt(document.querySelector('#num1').value),
-//   num2 = parseInt(document.querySelector('#num2').value)
-//   ;
-//   switch(algoritmo){
-//     case 1 :
-//       ((n1=num1,n2=num2)=>{
-//         return insertar(n1+n2)
-//       })()
-//       break;
-//     case 2 :
-//       ((n1=num1,n2=num2)=>{
-//         return insertar(n1-n2)
-//       })()
-//       break;
-//     case 3 :
-//       ((n1=num1,n2=num2)=>{
-//         return insertar(n1*n2)
-//       })()
-//       break;
-//     case 4 :
-//       ((n1=num1,n2=num2)=>{
-//         return insertar(n1/n2)
-//       })()
-//       break;
-//     }
-// }
-// function insertar (text){
-//     if(!document.querySelector('#resultado')){
-//       txt = document.createTextNode(text)
-//       p.setAttribute('id','resultado')
-//       p.appendChild(txt)
-//       div.appendChild(p)   
-//     }
-//     else{
-//       document.querySelector('#resultado').remove()
-//       txt = document.createTextNode(text)
-//       p.setAttribute('id','resultado')
-//       p.appendChild(txt)
-//       div.appendChild(p)
-//     }
-// }
-// button.onclick = () => consulta()
 let agregar = (n) =>{
-  if(!operacion){
+  if(operacion == ""){
     valor1 = `${valor1}${n}`
-    console.log(valor1)
-    
+    parrafo(valor1)
   }
   else{
     valor2 = `${valor2}${n}`
-    console.log(valor2)
+    parrafo(valor2)
   }
 }
 // valores de cada celda
@@ -78,7 +41,9 @@ let num1 = document.querySelector('#num1'),
 // valores para operacion
   valor1 = "",
   valor2 = "",
+  resultado = "",
   operacion = false
+
 num1.onclick = () => {
   agregar(1)
 }
@@ -112,8 +77,32 @@ num0.onclick = () => {
 punto.onclick = () => {
   agregar(".")
 }
-sum.onclick = () =>operacion = true
-res.onclick = () =>operacion = true
-mul.onclick = () =>operacion = true
-div.onclick = () =>operacion = true
-igual.onclick = () =>operacion = true
+sum.onclick = () =>operacion = "suma";parrafo("")
+res.onclick = () =>operacion = "resta";parrafo("")
+mul.onclick = () =>operacion = "multiplicacion";parrafo("")
+div.onclick = () =>operacion = "divicion";parrafo("")
+
+igual.onclick = () =>{
+  valor1 = parseInt(valor1)
+  valor2 = parseInt(valor2)
+  switch(operacion){
+    case "suma":
+      resultado = valor1 + valor2
+      parrafo(resultado)
+      break;
+    case "resta":
+      resultado = valor1 - valor2
+      parrafo(resultado)
+      break;
+    case "multiplicacion":
+      resultado = valor1 * valor2
+      parrafo(resultado)
+      break;
+    case "divicion":
+      resultado = valor1 / valor2
+      parrafo(resultado)
+      break;
+  }
+}
+
+
